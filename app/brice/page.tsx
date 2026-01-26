@@ -303,6 +303,52 @@ export default function BricePage() {
           color: #2D2A26;
           font-weight: 500;
         }
+        /* Piliers Grid */
+        .piliers-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+
+        .pilier-card {
+          background: white;
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: 0 4px 40px rgba(45, 42, 38, 0.05);
+        }
+
+        .pilier-header {
+          padding: 14px 20px;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        .pilier-header.positionnement { background: #FEF3C7; }
+        .pilier-header.acquisition { background: #DBEAFE; }
+        .pilier-header.process { background: #D1FAE5; }
+        .pilier-header.data { background: #EDE9FE; }
+
+        .pilier-content {
+          padding: 16px 20px;
+        }
+
+        .pilier-content ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        .pilier-content li {
+          font-size: 13px;
+          color: #6B6560;
+          padding: 6px 0;
+          border-bottom: 1px solid #F5F3F0;
+        }
+
+        .pilier-content li:last-child {
+          border-bottom: none;
+        }
+
 
         @media (max-width: 600px) {
           .funnels-grid, .facts-grid {
@@ -313,6 +359,9 @@ export default function BricePage() {
           }
           .container {
             padding: 40px 24px;
+          }
+          .piliers-grid {
+            grid-template-columns: 1fr;
           }
         }
       `}</style>
@@ -447,8 +496,51 @@ export default function BricePage() {
 
         <section className="section" style={{ marginTop: '40px' }}>
           <p className="section-label next">Next step</p>
-          <div className="card">
-            <p style={{ textAlign: 'center', fontSize: '16px', color: '#2D2A26' }}>Un audit de 60 min pour creuser et prioriser ensemble.</p>
+          <div className="card" style={{ marginBottom: '24px' }}>
+            <p style={{ fontSize: '18px', fontWeight: 500, color: '#2D2A26', marginBottom: '8px' }}>Un audit de 60 min pour identifier les vrais blocages et prioriser.</p>
+            <p style={{ fontSize: '15px', color: '#6B6560' }}>Tu partages ton écran, on creuse ensemble.</p>
+          </div>
+          
+          <div className="piliers-grid">
+            <div className="pilier-card">
+              <div className="pilier-header positionnement">🎯 Positionnement</div>
+              <div className="pilier-content">
+                <ul>
+                  <li>Ton client idéal vs qui arrive vraiment</li>
+                  <li>Les vraies raisons des "non"</li>
+                  <li>Ce qui déclenche l&apos;achat</li>
+                </ul>
+              </div>
+            </div>
+            <div className="pilier-card">
+              <div className="pilier-header acquisition">📢 Acquisition</div>
+              <div className="pilier-content">
+                <ul>
+                  <li>Ton funnel ads — où ça fuit</li>
+                  <li>Les posts qui convertissent</li>
+                  <li>Les 300 leads dans Folk</li>
+                </ul>
+              </div>
+            </div>
+            <div className="pilier-card">
+              <div className="pilier-header process">⚙️ Process</div>
+              <div className="pilier-content">
+                <ul>
+                  <li>Comment se passent tes R1/R2</li>
+                  <li>Le plan avec le setter</li>
+                  <li>Ce que tu veux garder vs déléguer</li>
+                </ul>
+              </div>
+            </div>
+            <div className="pilier-card">
+              <div className="pilier-header data">�� Data</div>
+              <div className="pilier-content">
+                <ul>
+                  <li>Ce que tu mesures aujourd&apos;hui</li>
+                  <li>Ce que tu ne sais pas encore</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
 
