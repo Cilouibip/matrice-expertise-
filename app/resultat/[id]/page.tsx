@@ -137,6 +137,10 @@ function RadarChart({ sousScores }: { sousScores: DiagnosticData['sous_scores'] 
           </text>
         ))}
       </svg>
+      <div className="flex justify-center gap-6 mt-2 text-xs text-[#9B8F85]">
+        <span>Centre = 0</span>
+        <span>Bord = 100</span>
+      </div>
     </div>
   )
 }
@@ -278,7 +282,12 @@ export default function ResultatPage() {
                 <div className="flex items-center justify-between p-3 bg-[#FAF9F6] rounded-xl">
                   <span className="font-medium text-[#112337]">Clarté</span>
                   <div className="text-right">
-                    <span className="font-bold text-[#FF9B71]">{diagnostic.sous_scores.clarte.score}/100</span>
+                    <span className={`font-bold ${
+                      diagnostic.sous_scores.clarte.score >= 75 ? 'text-[#059669]' :
+                      diagnostic.sous_scores.clarte.score >= 50 ? 'text-[#D97706]' :
+                      diagnostic.sous_scores.clarte.score >= 25 ? 'text-[#EA580C]' :
+                      'text-[#DC2626]'
+                    }`}>{diagnostic.sous_scores.clarte.score}/100</span>
                     <p className="text-sm text-[#585e6a]">{diagnostic.sous_scores.clarte.explication}</p>
                   </div>
                 </div>
@@ -286,7 +295,12 @@ export default function ResultatPage() {
                 <div className="flex items-center justify-between p-3 bg-[#FAF9F6] rounded-xl">
                   <span className="font-medium text-[#112337]">Confiance</span>
                   <div className="text-right">
-                    <span className="font-bold text-[#FF9B71]">{diagnostic.sous_scores.confiance.score}/100</span>
+                    <span className={`font-bold ${
+                      diagnostic.sous_scores.confiance.score >= 75 ? 'text-[#059669]' :
+                      diagnostic.sous_scores.confiance.score >= 50 ? 'text-[#D97706]' :
+                      diagnostic.sous_scores.confiance.score >= 25 ? 'text-[#EA580C]' :
+                      'text-[#DC2626]'
+                    }`}>{diagnostic.sous_scores.confiance.score}/100</span>
                     <p className="text-sm text-[#585e6a]">{diagnostic.sous_scores.confiance.explication}</p>
                   </div>
                 </div>
@@ -294,7 +308,12 @@ export default function ResultatPage() {
                 <div className="flex items-center justify-between p-3 bg-[#FAF9F6] rounded-xl">
                   <span className="font-medium text-[#112337]">Exécution</span>
                   <div className="text-right">
-                    <span className="font-bold text-[#FF9B71]">{diagnostic.sous_scores.execution.score}/100</span>
+                    <span className={`font-bold ${
+                      diagnostic.sous_scores.execution.score >= 75 ? 'text-[#059669]' :
+                      diagnostic.sous_scores.execution.score >= 50 ? 'text-[#D97706]' :
+                      diagnostic.sous_scores.execution.score >= 25 ? 'text-[#EA580C]' :
+                      'text-[#DC2626]'
+                    }`}>{diagnostic.sous_scores.execution.score}/100</span>
                     <p className="text-sm text-[#585e6a]">{diagnostic.sous_scores.execution.explication}</p>
                   </div>
                 </div>
@@ -302,14 +321,33 @@ export default function ResultatPage() {
                 <div className="flex items-center justify-between p-3 bg-[#FAF9F6] rounded-xl">
                   <span className="font-medium text-[#112337]">Ressources</span>
                   <div className="text-right">
-                    <span className="font-bold text-[#FF9B71]">{diagnostic.sous_scores.ressources.score}/100</span>
+                    <span className={`font-bold ${
+                      diagnostic.sous_scores.ressources.score >= 75 ? 'text-[#059669]' :
+                      diagnostic.sous_scores.ressources.score >= 50 ? 'text-[#D97706]' :
+                      diagnostic.sous_scores.ressources.score >= 25 ? 'text-[#EA580C]' :
+                      'text-[#DC2626]'
+                    }`}>{diagnostic.sous_scores.ressources.score}/100</span>
                     <p className="text-sm text-[#585e6a]">{diagnostic.sous_scores.ressources.explication}</p>
                   </div>
                 </div>
                 
-                <div className="mt-4 p-4 bg-[#FF9B71]/10 rounded-xl text-center">
-                  <span className="text-3xl font-bold text-[#FF9B71]">{scoreGlobal}</span>
-                  <span className="text-[#585e6a] ml-2">Score global</span>
+                <div className="mt-4 p-6 bg-[#FF9B71]/10 rounded-xl text-center">
+                  <p className="text-sm text-[#585e6a] mb-2">Ta capacité à te lancer</p>
+                  <span className="text-4xl font-bold text-[#FF9B71]">{scoreGlobal}</span>
+                  <span className="text-xl text-[#585e6a]">/100</span>
+                  <div className="mt-3">
+                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
+                      scoreGlobal >= 75 ? 'bg-[#D1FAE5] text-[#065F46]' :
+                      scoreGlobal >= 50 ? 'bg-[#FEF3C7] text-[#92400E]' :
+                      scoreGlobal >= 25 ? 'bg-[#FFEDD5] text-[#9A3412]' :
+                      'bg-[#FEE2E2] text-[#991B1B]'
+                    }`}>
+                      {scoreGlobal >= 75 ? 'Tu peux y aller' :
+                       scoreGlobal >= 50 ? 'T\'as les bases, mais t\'es encore freiné' :
+                       scoreGlobal >= 25 ? 'T\'es pas prêt \u2014 et c\'est normal' :
+                       'Gros chantier avant de bouger'}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
