@@ -97,6 +97,36 @@ Chaque recommandation DOIT inclure :
 - Cite l'entreprise actuelle, les compétences, le secteur
 - Relie le diagnostic au parcours réel de la personne
 
+## Densité et spécificité (OBLIGATOIRE)
+Chaque champ doit être DENSE et SPÉCIFIQUE. Pas de remplissage. Pas de phrases passe-partout.
+- diagnostic_brutal, piege_specifique : 40-80 mots, référence aux scores réels
+- anti_conseil : 20-40 mots, 1-2 phrases tranchantes avec raison concrète
+- forces, angles_morts : 1 phrase par item, cite données LinkedIn ou score précis
+- actions[].contexte : 1-2 phrases qui relient l'action AU score faible identifié
+- actions[].steps : verbe d'action + objet + deadline dans chaque step
+- actions[].template : message copiable, sonne humain, pas robot
+
+## EXEMPLES DE QUALITÉ ATTENDUE
+
+### ❌ MAUVAIS (trop générique — ce qu'on ne veut PLUS) :
+
+diagnostic_brutal: "Vous vendez de l'information, pas de la transformation. Votre modèle repose sur l'espoir que vos clients appliqueront vos conseils."
+→ Problème : ça décrit TOUS les formateurs. Zéro spécificité au profil ou aux scores.
+
+actions[].steps: "Prenez un client existant cette semaine et proposez-lui un sprint de 30 jours avec un objectif chiffré."
+→ Problème : conseil générique. Quel client ? Quel objectif ? Quel format ? Aucun lien avec le score.
+
+### ✅ BON (spécifique aux scores et au profil — ce qu'on veut) :
+
+diagnostic_brutal: "T'as 8 ans de consulting chez McKinsey et un score Confiance à 8/25. Le délire ? Tu sais exactement ce que valent tes conseils pour tes clients — mais t'arrives pas à te les appliquer à toi-même. C'est pas un problème de compétence. C'est un problème de miroir."
+→ Pourquoi c'est bon : cite le score exact (8/25), cite l'expérience réelle, nomme la contradiction.
+
+actions[].steps: "Prends ton client le plus rentable de l'année. Identifie SON KPI business (pas ton livrable). Propose-lui cette semaine : 'On teste 30 jours où je suis payé sur ce KPI. Si je rate, tu ne paies pas le variable.' C'est inconfortable. C'est exactement pour ça que ça marche."
+→ Pourquoi c'est bon : action concrète, script inclus, deadline, lien avec le problème de confiance.
+
+anti_conseil (score Clarté faible): "NE fais PAS un business plan. Dans 3 mois tu auras un Google Doc parfait et zéro conversation marché. La clarté vient du terrain, pas de ta tête."
+→ Pourquoi c'est bon : conséquence concrète, délai précis, verdict clair.
+
 # LES 6 ARCHÉTYPES ET LEURS PIÈGES
 
 ## Bâtisseur Silencieux
@@ -857,10 +887,30 @@ export async function POST(request: NextRequest) {
       runway: quiz_answers.runway
     })
     
-    const userPrompt = `Génère un diagnostic entrepreneur personnalisé pour ${first_name}.
+    const scoreDimensions = [
+      { name: 'clarity', label: 'Clarté', value: scoreBreakdown.clarity, max: 25 },
+      { name: 'confidence', label: 'Confiance', value: scoreBreakdown.confidence, max: 25 },
+      { name: 'resources', label: 'Ressources', value: scoreBreakdown.resources, max: 25 },
+      { name: 'urgency', label: 'Urgence', value: scoreBreakdown.urgency, max: 25 },
+    ]
+    const weakestDim = [...scoreDimensions].sort((a, b) => a.value - b.value)[0]
+    const strongestDim = [...scoreDimensions].sort((a, b) => b.value - a.value)[0]
+    const scoreGap = strongestDim.value - weakestDim.value
 
-DONNÉES LINKEDIN :
-${linkedin_profile ? JSON.stringify(linkedin_profile, null, 2) : 'Non disponible'}
+    const userPrompt = `PROFIL DU RÉPONDANT : ${first_name}
+
+ARCHÉTYPE DÉTECTÉ : ${archetype}
+SCORE READINESS GLOBAL : ${totalScore}/100
+
+SCORES PAR DIMENSION :
+- Clarté : ${scoreBreakdown.clarity}/25 ${scoreBreakdown.clarity <= 10 ? '⚠️ FAIBLE' : ''}
+- Confiance : ${scoreBreakdown.confidence}/25 ${scoreBreakdown.confidence <= 10 ? '⚠️ FAIBLE' : ''}
+- Ressources : ${scoreBreakdown.resources}/25 ${scoreBreakdown.resources <= 10 ? '⚠️ FAIBLE' : ''}
+- Urgence : ${scoreBreakdown.urgency}/25 ${scoreBreakdown.urgency >= 20 ? '⚠️ ÉLEVÉE' : ''}
+
+DIMENSION LA PLUS FAIBLE : ${weakestDim.label} (${weakestDim.value}/${weakestDim.max}) — insiste dessus dans le diagnostic
+DIMENSION LA PLUS FORTE : ${strongestDim.label} (${strongestDim.value}/${strongestDim.max}) — utilise-la comme levier
+ÉCART ENTRE DIMENSIONS : ${scoreGap} points (${scoreGap >= 8 ? 'DÉSÉQUILIBRE FORT — le diagnostic doit en parler explicitement' : 'relativement équilibré'})
 
 RÉPONSES QUIZ :
 - Situation : ${quiz_answers.situation}
@@ -872,8 +922,8 @@ RÉPONSES QUIZ :
 - Principal blocage : ${quiz_answers.blocage}
 - Réaction face à l'incertitude : ${quiz_answers.reaction_incertitude}
 
-ARCHÉTYPE DÉTECTÉ : ${archetype}
-SCORE READINESS : ${totalScore}/100
+DONNÉES LINKEDIN :
+${linkedin_profile ? JSON.stringify(linkedin_profile, null, 2) : 'Non disponible'}
 
 DONNÉES DE L'ARCHÉTYPE :
 ${JSON.stringify(archetypeData, null, 2)}
@@ -881,7 +931,8 @@ ${JSON.stringify(archetypeData, null, 2)}
 Génère un diagnostic JSON en suivant EXACTEMENT les patterns et la structure définis dans le system prompt.
 
 PATTERN À UTILISER : Pattern #${patternNumber} (confiance: ${confidence})
-Utilise EXACTEMENT ce pattern et personnalise avec les données LinkedIn réelles.`
+Utilise EXACTEMENT ce pattern et personnalise avec les données LinkedIn réelles.
+Sois chirurgical. Pas de phrases génériques. Chaque phrase doit être spécifique à CE profil avec CES scores.`
 
     const response = await anthropic.messages.create({
       model: 'claude-sonnet-4-20250514',
