@@ -27,7 +27,7 @@ export default function DiagnosticBlock({ diagnostic }: { diagnostic: Diagnostic
           <div className="bg-[#0a0a0a] border border-white/5 rounded-xl p-8 space-y-4">
             <h4 className="text-sm font-mono text-neutral-500 uppercase tracking-widest flex items-center gap-2">
               <span className="w-2 h-2 bg-neutral-600 rounded-full" />
-              La Réalité
+              Là où tu en es
             </h4>
             <p className="text-lg text-neutral-300 leading-relaxed">
               {diagnostic.situation}
@@ -38,7 +38,7 @@ export default function DiagnosticBlock({ diagnostic }: { diagnostic: Diagnostic
           <div className="bg-[#0a0a0a] border border-white/5 rounded-xl p-8 space-y-4">
             <h4 className="text-sm font-mono text-amber-500 uppercase tracking-widest flex items-center gap-2">
               <span className="w-2 h-2 bg-amber-500 rounded-full" />
-              Le Vrai Problème
+              Le vrai problème
             </h4>
             <p className="text-lg text-neutral-300 leading-relaxed">
               {diagnostic.pourquoi_bloque}
@@ -55,7 +55,7 @@ export default function DiagnosticBlock({ diagnostic }: { diagnostic: Diagnostic
           </div>
           <h4 className="text-sm font-mono text-red-500 uppercase tracking-widest flex items-center gap-2 relative z-10">
             <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-            Risque à 6-12 mois
+            Si tu ne bouges pas
           </h4>
           <p className="text-xl md:text-2xl font-display font-medium text-red-200 leading-tight relative z-10">
             "{diagnostic.risque_concret}"

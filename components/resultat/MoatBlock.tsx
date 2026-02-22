@@ -24,7 +24,7 @@ export default function MoatBlock({ scoring, diagnostic }: { scoring: MatrixScor
             </svg>
           </div>
           <p className="text-neutral-400">
-            Données limitées — passez en mode avancé pour débloquer votre score MOAT et votre vulnérabilité IA.
+            Diagnostic incomplet. Repasse le test avec les 4 questions bonus pour débloquer ton score MOAT et ta vulnérabilité IA.
           </p>
         </div>
       </motion.div>
@@ -47,7 +47,7 @@ export default function MoatBlock({ scoring, diagnostic }: { scoring: MatrixScor
       className="space-y-8"
     >
       <div className="flex items-center gap-4 mb-6">
-        <h3 className="text-2xl font-display font-medium text-white">Défensibilité (MOAT)</h3>
+        <h3 className="text-2xl font-display font-medium text-white">Tes MOAT — ce qu'on ne peut pas te copier</h3>
         <div className="flex-1 h-px bg-white/10" />
       </div>
 
@@ -87,7 +87,7 @@ export default function MoatBlock({ scoring, diagnostic }: { scoring: MatrixScor
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
-                Vulnérabilité IA
+                Vulnérabilité face à l'IA
               </span>
               <h4 className="text-3xl font-display font-medium capitalize">
                 Niveau {diagnostic.ia_vulnerability.level}

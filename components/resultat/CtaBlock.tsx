@@ -11,10 +11,10 @@ export default function CtaBlock() {
       className="text-center space-y-8 py-12"
     >
       <h3 className="text-3xl md:text-4xl font-display font-bold text-white">
-        Prêt à changer de cadran ?
+        Tu veux bouger sur la matrice ?
       </h3>
       <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
-        Réserve un appel stratégique de 15 minutes pour voir comment implémenter ces actions dans ton activité.
+        15 minutes. On regarde ta situation. On identifie le premier move. Pas de pitch, pas de bullshit.
       </p>
       
       <a 
@@ -23,11 +23,11 @@ export default function CtaBlock() {
         rel="noopener noreferrer"
         className="inline-flex items-center justify-center px-8 py-4 bg-white text-black rounded-xl font-medium text-lg hover:bg-neutral-200 transition-all hover:scale-[1.02] active:scale-[0.98]"
       >
-        Réserver mon appel stratégique →
+        Réserver mes 15 minutes →
       </a>
       
       <p className="text-sm text-neutral-600">
-        100% gratuit. Pas de blabla, juste de la stratégie.
+        Gratuit. Pas de blabla. Juste ton prochain move.
       </p>
     </motion.div>
   )

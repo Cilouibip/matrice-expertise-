@@ -71,7 +71,7 @@ export default function RetrouverPage() {
             Retrouver mon diagnostic
           </h1>
           <p className="text-neutral-400 mb-8 leading-relaxed">
-            Entrez l'adresse email utilisée lors de votre évaluation pour accéder à votre rapport complet.
+            Entre l'email que tu as utilisé pour le diagnostic.
           </p>
 
           <form onSubmit={handleSearch} className="space-y-6">
@@ -85,7 +85,7 @@ export default function RetrouverPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full bg-[#050505] border border-white/10 rounded-xl px-4 py-4 text-white placeholder-neutral-600 focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/50 transition-all"
-                placeholder="vous@entreprise.com"
+                placeholder="ton@email.com"
               />
             </div>
 
@@ -120,12 +120,12 @@ export default function RetrouverPage() {
 
           <div className="mt-8 text-center border-t border-white/10 pt-6">
             <p className="text-neutral-500 text-sm">
-              Vous n'avez pas encore passé le test ? <br />
+              Tu n'as pas encore passé le test ? <br />
               <Link 
                 href="/quiz" 
                 className="inline-block text-violet-400 hover:text-violet-300 font-medium mt-2 transition-colors"
               >
-                Commencer l'évaluation →
+                Passer le diagnostic →
               </Link>
             </p>
           </div>

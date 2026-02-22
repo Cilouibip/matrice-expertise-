@@ -104,7 +104,7 @@ export default function HeaderBlock({ scoring }: { scoring: MatrixScoringResult 
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
           <span className="text-5xl font-display font-bold text-white tracking-tighter drop-shadow-lg">{displayScore}</span>
-          <span className="text-xs font-mono text-neutral-400 uppercase tracking-widest mt-1">Score</span>
+          <span className="text-xs font-mono text-neutral-400 uppercase tracking-widest mt-1 text-center leading-tight px-2">Score<br/>de Certitude</span>
         </div>
       </div>
     </motion.div>

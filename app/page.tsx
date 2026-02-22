@@ -20,10 +20,10 @@ export default function LandingPage() {
         
         <div className="space-y-6">
           <h1 className="text-5xl md:text-7xl font-display font-bold text-white tracking-tight leading-[1.1]">
-            Où es-tu sur la <span className="text-violet-400">Matrice de l'Expertise 2026</span> ?
+            Ton business d'expertise <span className="text-violet-400">survit en 2026</span> ?
           </h1>
           <p className="text-xl md:text-2xl text-neutral-400 font-light max-w-2xl mx-auto">
-            7 questions. 2 minutes. Un diagnostic chirurgical de ton positionnement sur le marché.
+            7 questions. 2 minutes. Un diagnostic chirurgical de ta position sur la Matrice.
           </p>
         </div>
 
@@ -33,7 +33,7 @@ export default function LandingPage() {
             className="group relative inline-flex items-center justify-center px-10 py-5 font-semibold text-white text-lg rounded-xl overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-violet-500/10 bg-neutral-900 border border-violet-500/40 hover:bg-violet-600/20 hover:border-violet-500/60"
           >
             <span className="relative z-10 flex items-center gap-2">
-              Commencer le diagnostic 
+              Passer le diagnostic 
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
@@ -61,8 +61,8 @@ export default function LandingPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="font-display font-medium text-white text-lg">Matrice 2×2</h3>
-              <p className="text-neutral-400 text-sm leading-relaxed">Découvre dans quel cadran tu te situes vraiment aujourd'hui.</p>
+              <h3 className="font-display font-medium text-white text-lg">Ta position sur la Matrice</h3>
+              <p className="text-neutral-400 text-sm leading-relaxed">Information, Transformation ou Certitude — tu vois exactement où tu es.</p>
             </div>
           </div>
           
@@ -76,7 +76,7 @@ export default function LandingPage() {
                 </svg>
               </div>
               <h3 className="font-display font-medium text-white text-lg">Score de Certitude</h3>
-              <p className="text-neutral-400 text-sm leading-relaxed">Mesure mathématiquement la fiabilité de ton système de vente.</p>
+              <p className="text-neutral-400 text-sm leading-relaxed">Proximité au revenu, vitesse, fiabilité — tes 3 variables passées au scanner.</p>
             </div>
           </div>
           
@@ -89,8 +89,8 @@ export default function LandingPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
               </div>
-              <h3 className="font-display font-medium text-white text-lg">Plan d'Action</h3>
-              <p className="text-neutral-400 text-sm leading-relaxed">Reçois les actions exactes à implémenter cette semaine.</p>
+              <h3 className="font-display font-medium text-white text-lg">Tes 2 Moves</h3>
+              <p className="text-neutral-400 text-sm leading-relaxed">Un Move Commando pour cette semaine. Un Move Builder pour ce mois. Générés par l'IA.</p>
             </div>
           </div>
         </div>

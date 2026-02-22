@@ -153,8 +153,8 @@ export default function MatrixBlock({ x, y, quadrant }: { x: number; y: number; 
 
       {/* Labels des Axes (Exterieurs) */}
       <div className="absolute -bottom-8 left-0 w-full flex justify-between px-8 text-[11px] font-mono text-neutral-500 uppercase tracking-widest font-semibold">
-        <span>VOUS FAITES TOUT</span>
-        <span>ON FAIT POUR VOUS</span>
+        <span>TU FAIS TOUT</span>
+        <span>ON OUVRE LE CAPOT</span>
       </div>
       
       <div className="absolute top-0 -left-12 h-full flex flex-col justify-between py-8 text-[11px] font-mono text-neutral-500 uppercase tracking-widest font-semibold" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>

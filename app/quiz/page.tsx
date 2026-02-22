@@ -9,8 +9,48 @@ type Step = 'core' | 'upsell' | 'bonus' | 'email' | 'loading'
 
 const CORE_QUESTIONS = [
   {
+    id: 'q4',
+    text: "Un prospect te demande : 'Qu'est-ce qui me prouve que ça va marcher ?' — tu réponds quoi ?",
+    options: [
+      { value: 1, label: "Mon parcours, mes certifs, mes témoignages" },
+      { value: 2, label: "Ma méthode pas à pas et pourquoi elle est différente" },
+      { value: 3, label: "Des résultats chiffrés de clients dans une situation similaire" },
+      { value: 4, label: "Un premier sprint court avec un objectif mesurable — avant tout engagement long" }
+    ]
+  },
+  {
+    id: 'q5',
+    text: "Ta prestation est finie. Tu pars. Qu'est-ce qui reste chez ton client ?",
+    options: [
+      { value: 1, label: "Des notes, un PDF, un replay" },
+      { value: 2, label: "Un plan d'action ou une méthode à suivre" },
+      { value: 3, label: "Des templates et outils configurés qu'il utilise au quotidien" },
+      { value: 4, label: "Un système qui tourne sans moi (dashboard, automations, data)" }
+    ]
+  },
+  {
+    id: 'q3',
+    text: "Comment tu factures ?",
+    options: [
+      { value: 1, label: "Au temps passé (TJM, taux horaire)" },
+      { value: 2, label: "Au forfait projet (périmètre fixé, prix fixé)" },
+      { value: 3, label: "En abonnement (retainer, accompagnement continu)" },
+      { value: 4, label: "En partie variable, indexée sur un résultat du client" }
+    ]
+  },
+  {
+    id: 'q6',
+    text: "Le résultat que tu livres dépend principalement de quoi ?",
+    options: [
+      { value: 1, label: "De la motivation du client (s'il applique ou pas)" },
+      { value: 2, label: "De ma propre exécution (si je suis bon ce jour-là)" },
+      { value: 3, label: "Du marché du client (s'il y a des opportunités)" },
+      { value: 4, label: "D'un système outillé avec de la data et des boucles de contrôle" }
+    ]
+  },
+  {
     id: 'q1',
-    text: "Quel pourcentage de votre CA vient de clients qui re-signent dans les 12 mois ?",
+    text: "Quel pourcentage de ton CA vient de clients qui re-signent dans les 12 mois ?",
     options: [
       { value: 1, label: "Moins de 10%" },
       { value: 2, label: "10-30%" },
@@ -20,62 +60,22 @@ const CORE_QUESTIONS = [
   },
   {
     id: 'q2',
-    text: "Votre dernier client a eu un problème après votre prestation. Concrètement, qu'est-ce qui s'est passé ?",
+    text: "Ton dernier client a eu un problème après ta prestation. Qu'est-ce qui s'est passé ?",
     options: [
-      { value: 1, label: "Il ne m'a pas recontacté, notre mission était terminée" },
-      { value: 2, label: "Il m'a envoyé un message, j'ai répondu par email/vocal" },
-      { value: 3, label: "On avait un point de suivi planifié, on a traité le problème ensemble" },
-      { value: 4, label: "Un outil ou un process que j'avais mis en place a détecté le problème automatiquement" }
-    ]
-  },
-  {
-    id: 'q3',
-    text: "Comment vous facturez vos clients ?",
-    options: [
-      { value: 1, label: "Au temps passé (TJM, taux horaire)" },
-      { value: 2, label: "Au forfait projet (périmètre et prix fixés à l'avance)" },
-      { value: 3, label: "En abonnement mensuel (retainer, accompagnement continu)" },
-      { value: 4, label: "En partie variable, indexée sur un KPI ou un résultat du client" }
-    ]
-  },
-  {
-    id: 'q4',
-    text: "Un prospect vous demande : 'Qu'est-ce qui me prouve que ça va marcher ?' — vous répondez quoi ?",
-    options: [
-      { value: 1, label: "Je lui montre mon parcours, mes certifications, mes témoignages" },
-      { value: 2, label: "Je lui explique ma méthode pas à pas et pourquoi elle est différente" },
-      { value: 3, label: "Je lui montre des résultats chiffrés de clients dans une situation similaire" },
-      { value: 4, label: "Je lui propose un premier sprint court avec un objectif mesurable avant tout engagement long" }
-    ]
-  },
-  {
-    id: 'q5',
-    text: "Quand votre prestation est terminée, qu'est-ce qui reste concrètement chez votre client ?",
-    options: [
-      { value: 1, label: "Des notes, un PDF, un replay ou un document" },
-      { value: 2, label: "Un plan d'action ou une méthode qu'il peut suivre" },
-      { value: 3, label: "Des templates ou outils configurés qu'il utilise au quotidien" },
-      { value: 4, label: "Un système automatisé (dashboard, CRM, automations) qui tourne sans moi" }
-    ]
-  },
-  {
-    id: 'q6',
-    text: "Le résultat que vous livrez dépend principalement de quoi ?",
-    options: [
-      { value: 1, label: "De la motivation et de l'implication du client" },
-      { value: 2, label: "De la qualité de mon exécution personnelle" },
-      { value: 3, label: "Du volume d'opportunités disponibles sur le marché du client" },
-      { value: 4, label: "D'un process outillé avec des données et des boucles de contrôle" }
+      { value: 1, label: "Il ne m'a pas recontacté — mission terminée, bonne chance" },
+      { value: 2, label: "Il m'a envoyé un message, j'ai répondu au cas par cas" },
+      { value: 3, label: "On avait un suivi planifié, on a réglé ça ensemble" },
+      { value: 4, label: "Un système que j'avais installé a détecté le problème avant lui" }
     ]
   },
   {
     id: 'q7',
-    text: "Si demain votre canal d'acquisition principal se coupe, vous avez quoi en backup ?",
+    text: "Demain, ton canal d'acquisition principal se coupe. Tu as quoi ?",
     options: [
-      { value: 1, label: "Rien, je recommence à prospecter de zéro" },
-      { value: 2, label: "Mon réseau personnel, je recontacte des gens un par un" },
-      { value: 3, label: "J'ai du contenu organique (YouTube, newsletter, LinkedIn) qui génère des leads sans moi" },
-      { value: 4, label: "J'ai plusieurs canaux actifs en parallèle dont de l'organique qui scale" }
+      { value: 1, label: "Rien. Je reprends le téléphone" },
+      { value: 2, label: "Mon réseau — je recontacte des gens un par un" },
+      { value: 3, label: "Du contenu organique (YouTube, newsletter, LinkedIn) qui tourne sans moi" },
+      { value: 4, label: "Plusieurs canaux actifs en parallèle, dont de l'organique qui scale" }
     ]
   }
 ]
@@ -83,27 +83,27 @@ const CORE_QUESTIONS = [
 const BONUS_QUESTIONS = [
   {
     id: 'q8',
-    text: "Est-ce que vous avez des données structurées sur les résultats de vos clients passés ?",
+    text: "Tu as de la data structurée sur les résultats de tes anciens clients ?",
     options: [
-      { value: 1, label: "Non, je n'ai pas vraiment suivi ça" },
-      { value: 2, label: "J'ai quelques témoignages et retours informels" },
-      { value: 3, label: "J'ai des métriques clés pour la plupart de mes clients" },
-      { value: 4, label: "J'ai une base de données avec des benchmarks, des patterns et des résultats comparables" }
+      { value: 1, label: "Non, j'ai pas vraiment suivi ça" },
+      { value: 2, label: "Quelques témoignages et retours informels" },
+      { value: 3, label: "Des métriques clés pour la plupart de mes clients" },
+      { value: 4, label: "Une base de données avec benchmarks, patterns et résultats comparables" }
     ]
   },
   {
     id: 'q9',
-    text: "Qu'est-ce qui est documenté et systématisé dans votre activité aujourd'hui ?",
+    text: "Si une IA devait te remplacer demain, qu'est-ce qui l'en empêcherait ?",
     options: [
-      { value: 1, label: "Presque rien, tout est dans ma tête" },
-      { value: 2, label: "J'ai quelques process écrits et des templates" },
-      { value: 3, label: "J'ai des process documentés, des SOPs, et des outils qui font une partie du travail" },
-      { value: 4, label: "J'ai un système complet : process, data, automations, outils propriétaires" }
+      { value: 1, label: "Honnêtement, pas grand-chose" },
+      { value: 2, label: "Quelques process écrits et des templates" },
+      { value: 3, label: "Des process documentés, des SOPs, des outils qui font une partie du boulot" },
+      { value: 4, label: "Un système complet : process, data, automations, outils propriétaires" }
     ]
   },
   {
     id: 'q10',
-    text: "Combien de clients pouvez-vous gérer simultanément sans que la qualité baisse ?",
+    text: "Combien de clients tu peux gérer en même temps sans que la qualité baisse ?",
     options: [
       { value: 1, label: "1 à 3" },
       { value: 2, label: "4 à 8" },
@@ -113,12 +113,12 @@ const BONUS_QUESTIONS = [
   },
   {
     id: 'q11',
-    text: "Qu'est-ce qui vous met le plus sous pression en ce moment ?",
+    text: "C'est quoi le truc qui te bouffe le plus en ce moment ?",
     options: [
-      { value: "acquisition", label: "Mon acquisition est instable, je ne sais pas d'où vient le prochain client" },
-      { value: "marges", label: "Mes marges sont trop basses, je travaille trop pour ce que je gagne" },
-      { value: "resultats", label: "Mes clients n'appliquent pas ou les résultats sont irréguliers" },
-      { value: "remplacable", label: "Je sens que ce que je fais est remplaçable" }
+      { value: "acquisition", label: "L'acquisition — je sais pas d'où vient le prochain client" },
+      { value: "marges", label: "Les marges — je bosse trop pour ce que je gagne" },
+      { value: "resultats", label: "Les résultats — mes clients n'appliquent pas, ou c'est irrégulier" },
+      { value: "remplacable", label: "La peur d'être remplaçable" }
     ]
   }
 ]
@@ -178,7 +178,7 @@ export default function QuizPage() {
   const submitQuiz = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!email) {
-      setError("L'email est requis pour recevoir le diagnostic.")
+      setError("Il me faut ton email pour t'envoyer le diagnostic.")
       return
     }
     
@@ -295,10 +295,10 @@ export default function QuizPage() {
                 </svg>
               </div>
               <h2 className="text-3xl font-display font-bold text-white">
-                Votre diagnostic de base est prêt.
+                Ton diagnostic de base est prêt.
               </h2>
               <p className="text-lg text-neutral-400 max-w-lg mx-auto">
-                4 questions de plus en 60 secondes pour débloquer votre score de vulnérabilité IA et votre niveau de MOAT.
+                4 questions de plus. 60 secondes. Tu débloques deux trucs que les autres n'auront pas : ton score de vulnérabilité face à l'IA, et ton niveau de MOAT — tes avantages que personne ne peut copier.
               </p>
               
               <div className="flex flex-col gap-4 pt-4">
@@ -309,7 +309,7 @@ export default function QuizPage() {
                   }}
                   className="w-full bg-white text-black px-6 py-4 rounded-xl font-medium hover:bg-neutral-200 transition-colors"
                 >
-                  Continuer vers le diagnostic avancé (Recommandé)
+                  Débloquer le diagnostic complet (60 sec) →
                 </button>
                 <button
                   onClick={() => {
@@ -318,7 +318,7 @@ export default function QuizPage() {
                   }}
                   className="w-full px-6 py-4 rounded-xl font-medium text-neutral-400 hover:text-white transition-colors"
                 >
-                  Non merci, voir mon résultat de base
+                  Voir mon résultat de base →
                 </button>
               </div>
             </motion.div>
@@ -370,10 +370,10 @@ export default function QuizPage() {
               className="bg-[#0a0a0a] border border-white/10 p-8 md:p-12 rounded-2xl"
             >
               <h2 className="text-3xl font-display font-bold text-white mb-2">
-                Où envoyer votre diagnostic ?
+                Où on t'envoie ton diagnostic ?
               </h2>
               <p className="text-neutral-400 mb-8">
-                L'IA va générer votre position sur la matrice et vos recommandations.
+                L'IA génère ta position sur la matrice, tes scores, et ton plan d'action personnalisé. Tu le reçois par email.
               </p>
               
               <form onSubmit={submitQuiz} className="space-y-6">
@@ -387,7 +387,7 @@ export default function QuizPage() {
                       value={firstName}
                       onChange={e => setFirstName(e.target.value)}
                       className="w-full bg-[#050505] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-neutral-600 focus:outline-none focus:border-white/30 transition-colors"
-                      placeholder="Votre prénom"
+                      placeholder="Ton prénom"
                     />
                   </div>
                   <div>
@@ -400,7 +400,7 @@ export default function QuizPage() {
                       onChange={e => setEmail(e.target.value)}
                       required
                       className="w-full bg-[#050505] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-neutral-600 focus:outline-none focus:border-white/30 transition-colors"
-                      placeholder="vous@entreprise.com"
+                      placeholder="ton@email.com"
                     />
                   </div>
                 </div>
@@ -435,7 +435,7 @@ export default function QuizPage() {
                   Analyse en cours...
                 </h2>
                 <p className="text-neutral-500 font-mono text-sm">
-                  Génération du rapport par l'IA
+                  L'IA croise tes réponses avec la Matrice...
                 </p>
               </div>
             </motion.div>

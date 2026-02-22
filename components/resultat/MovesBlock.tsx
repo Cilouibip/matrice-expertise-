@@ -21,7 +21,7 @@ export default function MovesBlock({ diagnostic }: { diagnostic: DiagnosticJson 
       className="space-y-6"
     >
       <div className="flex items-center gap-4 mb-8">
-        <h3 className="text-2xl font-display font-medium text-white">Plan d'Action</h3>
+        <h3 className="text-2xl font-display font-medium text-white">Tes 2 Moves</h3>
         <div className="flex-1 h-px bg-white/10" />
       </div>
 

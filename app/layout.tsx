@@ -22,7 +22,7 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'Matrice de l\'Expertise 2026',
-  description: 'Où es-tu sur la Matrice de l\'Expertise 2026 ? 7 questions. 2 minutes. Un diagnostic chirurgical.',
+  description: 'Ton business d\'expertise survit en 2026 ? 7 questions. 2 minutes. Diagnostic chirurgical de ta position sur la Matrice.',
 }
 
 export default function RootLayout({

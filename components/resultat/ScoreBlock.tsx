@@ -26,7 +26,7 @@ export default function ScoreBlock({ variables }: { variables: Variable[] }) {
       className="space-y-8"
     >
       <div className="flex items-center gap-4 mb-6">
-        <h3 className="text-2xl font-display font-medium text-white">Variables de Certitude</h3>
+        <h3 className="text-2xl font-display font-medium text-white">Les 3 Variables</h3>
         <div className="flex-1 h-px bg-white/10" />
       </div>
 

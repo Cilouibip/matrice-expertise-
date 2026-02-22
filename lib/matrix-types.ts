@@ -147,8 +147,8 @@ export const QUADRANT_NAMES: Record<Quadrant, string> = {
 }
 
 export const QUADRANT_TAGLINES: Record<Quadrant, string> = {
-  formateur_fantome: 'Zone de mort',
-  sage_fragile: 'Expert respecté, business fragile',
-  operateur_certitude: 'Le Saint Graal',
-  agence_commodite: 'Course vers le bas',
+  formateur_fantome: "Tu vends du savoir. L'IA le donne gratuitement.",
+  sage_fragile: "Tout le monde te respecte. Personne ne peut te remplacer. C'est le problème.",
+  operateur_certitude: "Tu ne vends pas du service. Tu vends de la certitude.",
+  agence_commodite: "Tu fais le boulot. Mais n'importe qui pourrait le faire à ta place.",
 }
