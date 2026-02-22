@@ -1,25 +1,29 @@
 @import "tailwindcss";
 
-:root {
-  --color-cream: #FAF9F6;
-  --color-warm-black: #2D2A26;
-  --color-warm-gray: #6B6560;
-  --color-muted: #9B8F85;
-  --color-border: #E8E4DF;
-  
-  /* Nouvelles couleurs Ali Abdaal */
-  --color-primary: #FF9B71;
-  --color-primary-hover: #FF8A5C;
-  --color-accent-blue: #5BC0EB;
-  --color-accent-coral: #FA7268;
-  --color-accent-mint: #95E1D3;
-  --color-accent-yellow: #F4D35E;
-  --color-text-primary: #112337;
-  --color-text-secondary: #585e6a;
-  --color-background: #FAF9F6;
+html {
+  color-scheme: dark;
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
+  background: #050505;
+  color: #e5e5e5;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Scrollbar dark */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
 }

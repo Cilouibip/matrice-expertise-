@@ -1,38 +1,40 @@
-import type { Metadata } from "next";
-import { DM_Sans, DM_Serif_Display } from "next/font/google";
-import "./globals.css";
+import { Outfit, Inter, JetBrains_Mono } from 'next/font/google'
+import './globals.css'
+import type { Metadata } from 'next'
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-dm-sans",
-});
+const outfit = Outfit({ 
+  subsets: ['latin'], 
+  variable: '--font-display', 
+  weight: ['300','400','500','600','700'] 
+})
 
-const dmSerif = DM_Serif_Display({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-dm-serif",
-});
+const inter = Inter({ 
+  subsets: ['latin'], 
+  variable: '--font-sans', 
+  weight: ['300','400','500','600','700'] 
+})
+
+const jetbrains = JetBrains_Mono({ 
+  subsets: ['latin'], 
+  variable: '--font-mono', 
+  weight: ['400','500'] 
+})
 
 export const metadata: Metadata = {
-  title: "Diagnostic Brutal - Quel entrepreneur es-tu ?",
-  description: "Découvre ton profil entrepreneur en 3 minutes. Un diagnostic honnête, pas de bullshit.",
-};
+  title: 'Matrice de l\'Expertise 2026',
+  description: 'Où es-tu sur la Matrice de l\'Expertise 2026 ? 7 questions. 2 minutes. Un diagnostic chirurgical.',
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="fr" className={`${dmSans.variable} ${dmSerif.variable}`}>
-      <head>
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-      </head>
-      <body className="font-sans antialiased">
+    <html lang="fr" className={`${outfit.variable} ${inter.variable} ${jetbrains.variable}`}>
+      <body className="bg-[#050505] text-neutral-200 antialiased font-sans">
         {children}
       </body>
     </html>
-  );
+  )
 }
